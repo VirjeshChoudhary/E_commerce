@@ -75,7 +75,7 @@ app.use(authRoutes);
 app.use(productApi);
 app.use(cartRoutes)
 
-let Port=process.env.Port 
+let Port=8080 
 app.listen(Port , ()=>{
     console.log(`Server running at port : ${Port}`)
 })
