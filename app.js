@@ -28,8 +28,8 @@ let configsession={
   require('dotenv').config(); 
 
 mongoose.set("strictQuery",true);
-let url='mongodb+srv://virjeshchoudhary6:virjesh123@cluster0.hxfjfz0.mongodb.net/Ecommerce?retryWrites=true&w=majority&appName=Cluster0';
-mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}) 
+let url=process.env.MONGO_URL;
+mongoose.connect(url) 
 .then(()=>{console.log("DB connected")})
 .catch((err)=>{console.log("Error is: " , err)})
 
