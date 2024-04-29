@@ -28,18 +28,10 @@ let configsession={
   require('dotenv').config(); 
 
 mongoose.set("strictQuery",true);
-mongoose.connect(process.env.MONGO_URL,{useNewUrlParser:true,useUnifiedTopology:true});
-
-const db=mongoose.connection;
-db.on('error',console.error.bind(console,'connection error:'))
-db.once('open',function(){
-    console.log('DB Connected');
-})
-
-// let url=process.env.MONGO_URL;
-// mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}) 
-// .then(()=>{console.log("DB connected")})
-// .catch((err)=>{console.log("Error is: " , err)})
+let url='mongodb+srv://virjeshchoudhary6:virjesh123@cluster0.hxfjfz0.mongodb.net/Ecommerce?retryWrites=true&w=majority&appName=Cluster0';
+mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}) 
+.then(()=>{console.log("DB connected")})
+.catch((err)=>{console.log("Error is: " , err)})
 
 
 app.set('view engine' , 'ejs')
